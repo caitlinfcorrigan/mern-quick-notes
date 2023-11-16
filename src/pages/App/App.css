@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+.AuthButton {
+  border-style: solid;
+  border-color: black;
+}
