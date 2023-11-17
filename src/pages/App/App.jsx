@@ -4,7 +4,7 @@ import { getUser } from '../../utilities/users-service';
 import React from 'react';
 import AuthPage from '../AuthPage/AuthPage';
 import NavBar from '../../components/NavBar/NavBar';
-import NewNotePage from '../NewNotePage/NewNotePage';
+import NewNote from '../../components/NewNote/NewNote';
 import NotesPage from '../NotesPage/NotesPage';
 import './App.css';
 
@@ -17,7 +17,6 @@ export default function App() {
       <>
         <NavBar user={ user } setUser={ setUser }/>
         <Routes>
-          <Route path="/notes/new" element={ <NewNotePage /> } />
           <Route path="/notes" element={ <NotesPage /> } />
         </Routes>
       </>
