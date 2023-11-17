@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import * as notesAPI from '../../utilities/notes-api';
 
 export default function NewNote({ addNewNote }) {
     const [newNote, setNewNote] = useState("")
     function handleAddTodo(e) {
         e.preventDefault();
         // Add the note to the DB
+        // Call the notesAPI to kick off journey to controller
+        notesAPI.addNote(newNote);
         console.log(newNote);
         // Add the note to the Notes state
         addNewNote(newNote)

@@ -1,7 +1,9 @@
 import { checkToken } from "../../utilities/users-service";
 import * as notesAPI from "../../utilities/notes-api";
 import NewNote from "../../components/NewNote/NewNote";
+import Note from "../../components/Note/Note";
 import { useState } from 'react';
+
 export default function Notes() {
 
     const [notes, setNotes] = useState([]);
@@ -15,6 +17,10 @@ export default function Notes() {
         await notesAPI.getAll();
     }
     console.log(notes)
+
+    const notesList = notes.map((n, idx) => {
+       <Note note={n} key={idx} />
+    })
     
     async function handleCheckToken() {
         const expDate = await checkToken()
@@ -28,7 +34,7 @@ export default function Notes() {
             <button onClick={ handleCheckToken }>Check When My Login Expires</button>
             { notes ?
             <ul>
-                <li>{ notes }</li>
+                {notesList}
             </ul>
             :
             <h3>No notes yet</h3>
